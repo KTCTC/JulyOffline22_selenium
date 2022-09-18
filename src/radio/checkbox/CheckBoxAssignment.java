@@ -2,6 +2,7 @@ package radio.checkbox;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class CheckBoxAssignment {
@@ -13,15 +14,37 @@ public class CheckBoxAssignment {
 	    driver.manage().window().maximize();
 	    	    
 	    driver.get("https://demo.guru99.com/test/radio.html");	
-	    driver.findElement(By.xpath("//*[@value='checkbox1' and @type='checkbox']")).click();
+	   // driver.findElement(By.xpath("//*[@value='checkbox1' and @type='checkbox']")).click();
 	    
-	    checkOrUncheckCheckBox(driver, By.xpath("//*[@value='checkbox1' and @type='checkbox']"), false);
+	    checkOrUncheckCheckBox(driver, By.xpath("//*[@value='checkbox1' and @type='checkbox']"), true);
 	    
 	}
 	
 	public static void checkOrUncheckCheckBox(WebDriver dri, By oo, boolean checkUncheck)
 	{
+		WebElement check = dri.findElement(oo);
 		
+		boolean f = check.isSelected();
+		
+   if (f)
+   {
+	   if (!checkUncheck)
+	   {
+		   check.click();
+	   }
+	   
+	   
+   }
+   if(!f)
+   {
+	   if (checkUncheck)
+	   {
+		   
+		   check.click();
+	   }
+	   
+   }
+
 	}
 
 }
