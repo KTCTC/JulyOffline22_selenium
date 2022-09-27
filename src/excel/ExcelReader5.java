@@ -35,9 +35,9 @@ public class ExcelReader5 {
 		{
             XSSFRow row = sh.getRow(i);
             XSSFCell cel = row.getCell(0);
-          String keyy = printValueOfCellAccordingToCellType(cel);
+          String keyy = getValueOfCellAccordingToCellType(cel);
            cel = row.getCell(1);
-         String val = printValueOfCellAccordingToCellType(cel);
+         String val = getValueOfCellAccordingToCellType(cel);
          keys.add(keyy);
          values.add(val);
             
@@ -48,7 +48,7 @@ public class ExcelReader5 {
 
 	}
 	
-	public static String printValueOfCellAccordingToCellType(XSSFCell cel)
+	public static String getValueOfCellAccordingToCellType(XSSFCell cel)
 	{
 		Object dd =null;
 		switch (cel.getCellType()) {
